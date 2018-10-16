@@ -3,6 +3,7 @@ import {collToArray} from '@tspower/core';
 
 
 export class CheckBox{
+    
     private node:HTMLInputElement;
     private clicked = new Subject<any>();
     private changed = new Subject<any>();
@@ -34,7 +35,7 @@ export class CheckBox{
     
     create = () => {
         let that = this;
-        
+
         let input = document.createElement("input");
         input.setAttribute("type", "checkbox");
         input.setAttribute("name", this.name);
@@ -116,6 +117,19 @@ export class CheckBox{
     enable = ():void =>{
         this.node.disabled = false;
         this.node.removeAttribute("disabled");
+
+        if(this.exclusive){
+            let selector = (this.group)?`input[type=checkbox][data-group="${this.group}"]`: `input[type="checkbox"]`;
+            let otherCheckbox = this.NodeSelect(selector);
+            otherCheckbox.forEach(e=>{
+                let name = e.getAttribute("name");
+                if(name!=this.name){
+                    e.removeAttribute("checked");
+                    e.checked = false;
+                }
+            });
+        }
+
         this.enab.next( { name:this.name, enabled: true } );
     }
     disable = ():void =>{
