@@ -15,6 +15,7 @@ export class CheckBox{
                 private name:string,
                 private checked?:boolean,
                 private exclusive?:boolean,
+                private group?:string,
                 private Id?:string, 
                 private Class?:string, 
                 private Style?:string)
@@ -27,6 +28,9 @@ export class CheckBox{
         let input = document.createElement("input");
         input.setAttribute("type", "checkbox");
         input.setAttribute("name", this.name);
+
+        if(this.group)input.setAttribute("data-group", this.group);
+
         if(this.checked)input.setAttribute("checked", "checked");
 
         input.addEventListener("click", (event)=>{
@@ -34,30 +38,36 @@ export class CheckBox{
             
         });
         input.addEventListener("change", (event)=>{
-            let ck = this.node.getAttribute("checked");
-            if(ck){
+
+            if(this.node.getAttribute("checked")){
                 this.checked = false;
                 this.node.removeAttribute("checked");
+                this.node.checked = false;
             }else{
                 this.checked = true;
                 this.node.setAttribute("checked", "checked");
+                this.node.checked = true;
             }
             this.changed.next(this.checked);
         });
 
         if(this.exclusive)input.addEventListener("change", (event)=>{
             if(this.isChecked()){
-            let otherCheckbox = this.NodeSelect(`input[type="checkbox"]`);
-            otherCheckbox.forEach(e=>{
-                let name = e.getAttribute("name");
-                if(name!=this.name){
-                    e.removeAttribute("checked");
-                    e.checked = false;
-                }
-            });
+                let selector = (this.group)?`input[type=checkbox][data-group="${this.group}"]`: `input[type="checkbox"]`;
+
+                let otherCheckbox = this.NodeSelect(selector);
+                
+                otherCheckbox.forEach(e=>{
+                    let name = e.getAttribute("name");
+                    if(name!=this.name){
+                        e.removeAttribute("checked");
+                        e.checked = false;
+                    }
+                });
         }
 
         });
+
 
         if(this.Id)input.setAttribute("id", this.Id);
         if(this.Class)input.setAttribute("class", this.Class);
