@@ -1,17 +1,18 @@
-export declare class FileLoader {
+export declare class CheckBox {
     private Root;
-    private multiple?;
+    private name;
+    private checked?;
+    private exclusive?;
     private Id?;
     private Class?;
     private Style?;
     private node;
     private clicked;
     private changed;
-    private files;
-    private http;
     clicked$: import("rxjs/internal/Observable").Observable<any>;
     changed$: import("rxjs/internal/Observable").Observable<any>;
-    constructor(Root: HTMLElement, multiple?: boolean, Id?: string, Class?: string, Style?: string);
+    constructor(Root: HTMLElement, name: string, checked?: boolean, exclusive?: boolean, Id?: string, Class?: string, Style?: string);
     create: () => void;
-    send: (url: string, inputName: string) => Promise<any>;
+    isChecked: () => boolean;
+    private NodeSelect;
 }
