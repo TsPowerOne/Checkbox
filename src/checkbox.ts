@@ -34,7 +34,7 @@ export class CheckBox{
         if(this.checked)input.setAttribute("checked", "checked");
 
         input.addEventListener("click", (event)=>{
-            this.clicked.next(true);
+            this.clicked.next( { name:this.name } );
             
         });
         input.addEventListener("change", (event)=>{
@@ -48,7 +48,7 @@ export class CheckBox{
                 this.node.setAttribute("checked", "checked");
                 this.node.checked = true;
             }
-            this.changed.next(this.checked);
+            this.changed.next( { name:this.name, checked:this.checked } );
         });
 
         if(this.exclusive)input.addEventListener("change", (event)=>{
@@ -56,7 +56,7 @@ export class CheckBox{
                 let selector = (this.group)?`input[type=checkbox][data-group="${this.group}"]`: `input[type="checkbox"]`;
 
                 let otherCheckbox = this.NodeSelect(selector);
-                
+
                 otherCheckbox.forEach(e=>{
                     let name = e.getAttribute("name");
                     if(name!=this.name){
