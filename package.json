@@ -1,6 +1,6 @@
 {
   "name": "@tspower/checkbox",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Simply checkbox",
   "main": "./lib/checkbox.js",
   "types": "./lib/checkbox.d.ts",
