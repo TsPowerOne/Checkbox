@@ -30,6 +30,7 @@ export class CheckBox extends InputElement{
                         this.Init();
 
                     }
+
     Init = () => {
 
         if(this.Group)this.setAttr("data-group", this.Group);
