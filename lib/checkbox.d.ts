@@ -1,26 +1,23 @@
-import { CoreElement } from '@tspower/core';
-export declare class CheckBox extends CoreElement {
+import { InputElement } from '@tspower/core';
+export declare class CheckBoxData {
+    name: string;
+    id: string;
+    checked: boolean;
+    constructor(name: string, id: string, checked: boolean);
+}
+export declare class CheckBox extends InputElement {
     private Root;
     private name;
-    private group?;
+    private Group?;
     private checked;
     private exclusive;
-    private disabled;
-    private clicked;
-    private changed;
-    private enab;
-    private disab;
-    clicked$: import("rxjs/internal/Observable").Observable<any>;
-    changed$: import("rxjs/internal/Observable").Observable<any>;
-    enabled$: import("rxjs/internal/Observable").Observable<any>;
-    disabled$: import("rxjs/internal/Observable").Observable<any>;
-    constructor(Root: HTMLElement, name: string, group?: string, Id?: string, Class?: string, Style?: string, checked?: boolean, exclusive?: boolean, disabled?: boolean);
-    private Init;
+    private _disabled;
+    constructor(Root: HTMLElement, name: string, Group?: string, Id?: string, Class?: string, Style?: string, checked?: boolean, exclusive?: boolean, _disabled?: boolean);
+    Init: () => void;
+    setGroup: (value: string) => void;
+    group: (value: string) => this;
     isChecked: () => boolean;
     check: () => void;
     uncheck: () => void;
-    isEnabled: () => boolean;
-    enable: () => void;
-    disable: () => void;
     private NodeSelect;
 }
