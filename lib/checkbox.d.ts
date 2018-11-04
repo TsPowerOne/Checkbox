@@ -1,14 +1,11 @@
-export declare class CheckBox {
+import { CoreElement } from '../../@tspower_core/lib/core';
+export declare class CheckBox extends CoreElement {
     private Root;
     private name;
     private group?;
-    private Id?;
-    private Class?;
-    private Style?;
     private checked;
     private exclusive;
     private disabled;
-    private node;
     private clicked;
     private changed;
     private enab;
@@ -18,7 +15,7 @@ export declare class CheckBox {
     enabled$: import("rxjs/internal/Observable").Observable<any>;
     disabled$: import("rxjs/internal/Observable").Observable<any>;
     constructor(Root: HTMLElement, name: string, group?: string, Id?: string, Class?: string, Style?: string, checked?: boolean, exclusive?: boolean, disabled?: boolean);
-    create: () => void;
+    private Init;
     isChecked: () => boolean;
     check: () => void;
     uncheck: () => void;
