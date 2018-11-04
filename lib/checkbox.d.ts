@@ -1,4 +1,4 @@
-import { CoreElement } from '../../@tspower_core/lib/core';
+import { CoreElement } from '@tspower/core';
 export declare class CheckBox extends CoreElement {
     private Root;
     private name;
