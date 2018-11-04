@@ -32,7 +32,10 @@ export class CheckBox extends InputElement{
                     }
 
     Init = () => {
-
+        this.DisableInputObservable(true);
+        this.DisableClickObservable(true);
+        this.DisableChangeObservable(true);
+        
         if(this.Group)this.setAttr("data-group", this.Group);
         if(this.checked)this.setAttr("checked", "checked");
         if(this._disabled)this.setAttr("disabled", "disabled");

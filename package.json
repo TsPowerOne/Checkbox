@@ -1,6 +1,6 @@
 {
   "name": "@tspower/checkbox",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "Simply checkbox",
   "main": "./lib/checkbox.js",
   "types": "./lib/checkbox.d.ts",
@@ -30,7 +30,7 @@
     "typedoc": "^0.13.0"
   },
   "dependencies": {
-    "@tspower/core": "^1.12.1",
+    "@tspower/core": "^1.13.0",
     "rxjs": "^6.3.3"
   }
 }
