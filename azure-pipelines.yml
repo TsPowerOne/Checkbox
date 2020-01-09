@@ -33,5 +33,9 @@ steps:
 
 - task: Npm@1
   inputs:
+    command: 'custom'
+    customCommand: 'npm version patch'
+- task: Npm@1
+  inputs:
     command: 'publish'
     publishEndpoint: 'npm registry'
