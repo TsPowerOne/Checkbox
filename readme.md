@@ -1,4 +1,4 @@
-# CLock        ![alt text](https://ppbusinessproject.visualstudio.com/TSPowerOne/_apis/build/status/TsPowerOne.Checkbox?branchName=master)
+# Checkbox        ![alt text](https://ppbusinessproject.visualstudio.com/TSPowerOne/_apis/build/status/TsPowerOne.Checkbox?branchName=master)
 
 
 > Add a Checkbox in your DOM!
