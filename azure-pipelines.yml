@@ -18,11 +18,11 @@ steps:
 - script: |
     npm install
     npm run build
-  displayName: 'npm install and build'
+  displayName: 'Npm install and build'
 
 - script: |
     npm run test
-  displayName: 'npm testing'
+  displayName: 'Npm testing'
   continueOnError: true
 
 - task: PublishTestResults@2
@@ -34,10 +34,10 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    customCommand: 'version patch'
-  displayName: version update
+    customCommand: 'version patch -m "Bump version to %s [skip ci]" --force'
+  displayName: Version Update
 - task: Npm@1
   inputs:
     command: 'publish'
     publishEndpoint: 'npm registry'
-  displayName: publish to NPM
+  displayName: Publish to npmjs.com
