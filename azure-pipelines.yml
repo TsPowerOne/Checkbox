@@ -32,6 +32,7 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/test-*.xml'
     failTaskOnFailedTests: true
+
 - task: Npm@1
   inputs:
     command: 'publish'
